@@ -47,7 +47,8 @@ public class CustomerRewardsController {
      */
     @GetMapping(path = GET_REQUEST_PATH,
             produces = {org.springframework.http.MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<Object> getCustomerPoints(@PathVariable String customerId)
+    public ResponseEntity<Object> getCustomerPoints(
+            @PathVariable(value = "customerId") String customerId)
             throws Exception {
         log.info(CONTROLLER_LOG + REWARDS_REQUEST_LOG);
         return new ResponseEntity<>(customersRewardsService.getCustomerRewardPoints(customerId), HttpStatus.OK);
